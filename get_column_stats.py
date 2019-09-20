@@ -3,24 +3,51 @@ import math
 import argparse
 
 
-def col_stats(data):
-    """Compute the mean and standard deviation
-    of a list of numbers
+def col_mean(data):
+    """Compute the mean of a list of numbers
 
     Parameters
     ----------
     data : float
-        list of data points to calculate mean and stdev
     Returns
     -------
     mean : float
         The mean of data
+    """
+    length = len(data)
+    for x in range(0, length):
+        try:
+            value = int(data[x])
+        except ValueError:
+            print("Input has non integers")
+            sys.exit(1)
+
+        mean = sum(data)/len(data)
+        return mean
+
+
+def col_stdev(data):
+    """Compute the standard deviation of a list of numbers
+
+    Parameters
+    ----------
+    data : float
+    Returns
+    -------
     stdev : float
         The standard deviation of data
     """
-    mean = sum(data)/len(data)
-    stdev = math.sqrt(sum([(mean-x)**2 for x in data]) / len(data))
-    return mean, stdev
+    length = len(data)
+    for x in range(0, length):
+        try:
+            value = int(data[x])
+        except ValueError:
+            print("Input has non integers")
+            sys.exit(1)
+
+        mean = sum(data)/len(data)
+        stdev = math.sqrt(sum([(mean-x)**2 for x in data]) / len(data))
+        return stdev
 
 
 def main():
@@ -79,8 +106,8 @@ def main():
             print >> sys.stderr, 'column number not in dataframe'
             sys.exit(1)
 
-    [mean, stdev] = col_stats(V)
-
+    mean = col_mean(V)
+    stdev = col_stdev(V)
     print('mean:', mean)
     print('stdev:', stdev)
 

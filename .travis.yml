@@ -10,6 +10,9 @@ before_install:
     - conda activate test
     - conda install -y pycodestyle
     - conda install --yes python=3.6
-      
+
 script:
     - bash basics_test.sh
+    - python basics_test.py
+    - pycodestyle get_column_stats.py
+    - pycodestyle basics_test.py
