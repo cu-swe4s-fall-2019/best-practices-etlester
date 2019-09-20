@@ -1,6 +1,6 @@
 # Best-practices
 ## Description
-The program, get_column_stats.py calculates the mean and stadard deviation of a specified 
+The program, get_column_stats.py calculates the mean and stadard deviation of a specified
 column in a supplied input file.
 This repository also contains a bash script for functional testing called
 basics_test.sh
@@ -25,7 +25,7 @@ Next, install python3 using homebrew
 brew install python
 '''
 
-Now we can install conda 
+Now we can install conda
 
 '''
 cd $HOME
@@ -33,7 +33,7 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -b
 . $HOME/miniconda3/etc/profile.d/conda.sh
 conda update --yes conda
-conda config --add channels bioconda
+conda config --add channels r
 echo ". $HOME/miniconda3/etc/profile.d/conda.sh" >> $HOME/.bashrc
 '''
 
@@ -63,4 +63,3 @@ Next you can try running get_col_stats.py on your own data
 '''
 python get_col_stats.py --file_name your_file_here.txt --col_num 1
 '''
-
